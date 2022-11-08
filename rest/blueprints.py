@@ -4,6 +4,7 @@ from controller.UserClassifies import index, seePic, getClass, indexClassify, in
 blueprint = Blueprint('blueprint', __name__)
 
 blueprint.route('/', methods=['GET'])(index)
+
 blueprint.route('/classify', methods=['GET'])(indexClassify)
 blueprint.route('/see-classification', methods=['GET'])(indexSeeClassification)
 
