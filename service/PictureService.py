@@ -1,4 +1,3 @@
-from model.Pictures import Picture
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from random import *
@@ -64,4 +63,4 @@ def getRandomPath(rawPath):
     print(path)
     return path
 
-getRandomPath("OIP-IHAIqlTWOBVbfOzTnnz68gHaJ3.jpeg")
+#getRandomPath("OIP-IHAIqlTWOBVbfOzTnnz68gHaJ3.jpeg")

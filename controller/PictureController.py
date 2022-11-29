@@ -18,6 +18,7 @@ on picture ID
 def insertPictureClass(id, classific):
     #edit this record in the database
     editRecord(id, classific)
+    #train using the new classification
 
 """ 
 Get the picture a user wants us to classify and add it to the database

@@ -20,7 +20,7 @@ User is shown a picture to classify
 """
 blueprint.route('/classify/see-picture', methods=['POST'])(
     #Get path to get picture from
-    path = getPicturePath
+    getPicturePath
     #use path to display picture
 )
 

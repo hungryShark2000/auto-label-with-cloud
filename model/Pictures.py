@@ -54,11 +54,14 @@ def prepare_picture(row):
     return Picture(**row)
 
 
-with open("../database/picturePaths.csv", encoding="utf-8", newline="") as csv_file:
-    csvreader = csv.DictReader(csv_file, quotechar='"')
-
-    pictures = [prepare_picture(row) for row in csvreader]
-
-    session = Session()
-    session.add_all(pictures)
-    session.commit()
+"""
+this was used to add all pictures to database, not needed anymore
+"""
+# with open("../database/picturePaths.csv", encoding="utf-8", newline="") as csv_file:
+#     csvreader = csv.DictReader(csv_file, quotechar='"')
+#
+#     pictures = [prepare_picture(row) for row in csvreader]
+#
+#     session = Session()
+#     session.add_all(pictures)
+#     session.commit()
