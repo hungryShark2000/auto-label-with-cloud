@@ -7,9 +7,9 @@ return the ID of this picture
 """
 def getPicturePath():
     # get pic from database
-    path = getRandomPath(getRandomPathRaw())
-    #TODO return ID
-    #TODO displat it in REST
+    rawPath = getRandomPathRaw()
+    path = getRandomPath(rawPath)
+    return [rawPath, path]
 
 """ 
 Get user's classification for the picture based on ID, insert it into the database based 

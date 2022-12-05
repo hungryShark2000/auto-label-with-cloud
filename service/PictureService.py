@@ -17,11 +17,10 @@ def connectToDatabase():
 Edit a record based on its id, and classification given by user
 return path for training use
 """
-def editRecord(idNum, classification):
+def editRecord(pathh, classification):
 
     session = connectToDatabase()
-    record = session.query(Picture).filter_by(id=idNum).one()
-    print
+    record = session.query(Picture).filter_by(path=pathh).one()
     record.isClassified = True
     record.classification = classification
     session.add(record)
