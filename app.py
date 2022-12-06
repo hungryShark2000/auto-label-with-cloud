@@ -1,9 +1,4 @@
 import base64
-
-from flask import Flask, send_file, render_template, request
-from PIL import Image
-import numpy as np
-import io
 from controller.PictureController import getPicturePath, insertPictureClass
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
@@ -109,6 +104,10 @@ def predict():
 def display_image(filename):
 	#print('display_image filename: ' + filename)
 	return redirect(url_for('static', filename='uploads/' + filename), code=301)
+
+@app.route('/test')
+def test():
+    return 'Hello World! I am from docker!'
 
 
 app.run()

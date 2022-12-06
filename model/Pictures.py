@@ -1,5 +1,3 @@
-import csv
-
 from dateutil.parser import parse
 from sqlalchemy import Column, Integer, String, create_engine, Boolean
 from sqlalchemy.ext.declarative import declarative_base
