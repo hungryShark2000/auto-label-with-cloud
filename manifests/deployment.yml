@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: hungrysharkautolabelwithcloud 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hungrysharkautolabelwithcloud
+  template:
+    metadata:
+      labels:
+        app: hungrysharkautolabelwithcloud 
+    spec:
+      containers:
+        - name: hungrysharkautolabelwithcloud 
+          image: autolabelcontainerregistery.azurecr.io/hungrysharkautolabelwithcloud
+          ports:
+          - containerPort: 5000
