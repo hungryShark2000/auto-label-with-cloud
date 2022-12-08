@@ -4,8 +4,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 
-engine = create_engine("postgresql://postgres:Masha101@localhost/cloudClassification", echo=True)
-
+engine = create_engine("postgresql://postgres:Masha101@postgres:5432/cloudClassification", echo=True)
+#engine = create_engine("postgresql://postgres:Masha101@localhost/cloudClassification", echo=True)
 Base = declarative_base()
 
 

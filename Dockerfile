@@ -1,10 +1,8 @@
-FROM python:3.6
-COPY . /app
+FROM python:3.9.0
+RUN apt-get update
+RUN mkdir /app
 WORKDIR /app
-RUN \
- apk add --no-cache bash && \
- apk add --no-cache postgresql-libs && \
- apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
+COPY . /app
 RUN pip install -r requirements.txt
 EXPOSE 5000
-CMD ["/bin/bash", "entrypoint.sh"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]

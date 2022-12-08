@@ -16,7 +16,7 @@ from flask import Flask, jsonify, request
 UPLOAD_FOLDER = 'static/uploads/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
-pathh = getPicturePath()
+#pathh = getPicturePath()
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = "secret key"
@@ -24,6 +24,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 @app.route('/image')
 def image():
+    pathh = getPicturePath()
     path = pathh[1]
     print(path)
     img = Image.open(path)
@@ -36,6 +37,7 @@ def image():
 
 @app.route('/image', methods=["POST"])
 def classific():
+    pathh = getPicturePath()
     text = request.form['text']
     processed_text = text.upper()
     print(processed_text)
@@ -108,6 +110,5 @@ def display_image(filename):
 @app.route('/test')
 def test():
     return 'Hello World! I am from docker!'
-
 
 app.run()

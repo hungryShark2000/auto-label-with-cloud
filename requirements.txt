@@ -1,3 +1,5 @@
+torch~=1.13.0
+torchvision~=0.14.0
 flask~=2.0.2
 flask-sqlalchemy
 psycopg2-binary
@@ -5,7 +7,4 @@ gunicorn
 python-dateutil~=2.8.2
 SQLAlchemy~=1.4.43
 timm~=0.6.12
-torch~=1.13.0
-torchvision~=0.14.0
 Werkzeug~=2.2.2
-Pillow~=9.3.0
