@@ -1,3 +1,4 @@
+"""Written by Masha"""
 """get random pic for user, display it"""
 from service.PictureService import getRandomPathRaw, getRandomPath, editRecord, addRecord
 

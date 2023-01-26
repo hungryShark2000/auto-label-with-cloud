@@ -1,3 +1,4 @@
+"""Written by: Masha"""
 import csv
 
 from dateutil.parser import parse

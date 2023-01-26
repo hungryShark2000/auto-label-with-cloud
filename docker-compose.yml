@@ -1,0 +1,26 @@
+#Written by: Masha
+version: '2.1'
+services:
+  postgres:
+    restart: always
+    image: postgres:10
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Masha101
+      - POSTGRES_DB=cloudClassification
+    volumes:
+      - ./postgres-data/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432"
+  app:
+    restart: always
+    build: ../../Desktop
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=postgresql://postgres:Masha101@postgres:5432/cloudClassification
+    depends_on:
+      - postgres
+    entrypoint: ["python", "app.py"]

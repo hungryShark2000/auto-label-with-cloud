@@ -1,8 +1,9 @@
+""" Written by: Masha + Yehyun"""
 import base64
 
 from controller.PictureController import getPicturePath, insertPictureClass
 from controller.classificationController import get_prediction, allowed_file
-from flask import flash, redirect, url_for, render_template
+from flask import flash, redirect, url_for, render_template, session
 from werkzeug.utils import secure_filename
 import os
 import io
@@ -13,14 +14,22 @@ from flask import Flask, jsonify, request
 UPLOAD_FOLDER = 'static/uploads/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
-pathh = getPicturePath()
+pathh = None#getPicturePath()
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = "secret key"
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
+#session['pathh']=getPicturePath()
+@app.route('/welcome')
+def welcome():
+    session['pathh']=getPicturePath()
+    return render_template('welcome.html')
+
+
 @app.route('/image')
 def image():
+    pathh = session.get('pathh', None)
     path = pathh[1]
     print(path)
     img = Image.open(path)
@@ -33,11 +42,13 @@ def image():
 
 @app.route('/image', methods=["POST"])
 def classific():
+    pathh = session.get('pathh', None)
     text = request.form['text']
     processed_text = text.upper()
     print(processed_text)
     insertPictureClass(pathh[0], processed_text)
-    return processed_text
+    return redirect(url_for('welcome')) #(request.url)
+    #return processed_text
 
 """ Renders template"""
 @app.route('/')

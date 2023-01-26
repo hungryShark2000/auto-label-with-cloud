@@ -1,3 +1,4 @@
+""" Written by: Yehyun and Masha"""
 import timm
 import torch
 import torchvision.transforms as transforms

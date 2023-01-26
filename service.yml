@@ -1,0 +1,13 @@
+#Written by: Masha
+apiVersion: v1
+kind: Service
+metadata:
+  name: autolabel-service
+spec:
+  selector:
+    app: autolabel
+  ports:
+    - protocol: "TCP"
+      port: 5000
+      targetPort: 5000
+  type: LoadBalancer
