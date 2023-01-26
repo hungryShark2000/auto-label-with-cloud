@@ -1,3 +1,4 @@
+"""Written by: Masha"""
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from random import *
@@ -8,8 +9,7 @@ from model.Pictures import Picture
 """
 def connectToDatabase():
 
-    #engine = create_engine("postgresql://postgres:Masha101@localhost/cloudClassification", echo=True)
-    engine = create_engine("postgresql://postgres:Masha101@postgres:5432/cloudClassification", echo=True)
+    engine = create_engine("postgresql://postgres:Masha101@localhost/cloudClassification", echo=True)
     Session = sessionmaker(bind=engine)
     session = Session()
     return session
@@ -62,3 +62,4 @@ def getRandomPath(rawPath):
     path = "database/classification-photos/"+ rawPath
     print(path)
     return path
+

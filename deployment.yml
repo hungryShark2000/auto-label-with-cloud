@@ -1,0 +1,20 @@
+#Written by: Masha
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: autolabel-deployment
+spec:
+  selector:
+    matchLabels:
+      app: autolabel
+  template:
+    metadata:
+      labels:
+        app: autolabel
+    spec:
+      containers:
+        - name: autolabel
+          image: themashanator/auto-label-with-cloud_app
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000

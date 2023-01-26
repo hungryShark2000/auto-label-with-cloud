@@ -1,11 +1,14 @@
+"""Written by: Masha"""
+import csv
+
 from dateutil.parser import parse
 from sqlalchemy import Column, Integer, String, create_engine, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 
-engine = create_engine("postgresql://postgres:Masha101@postgres:5432/cloudClassification", echo=True)
-#engine = create_engine("postgresql://postgres:Masha101@localhost/cloudClassification", echo=True)
+engine = create_engine("postgresql://postgres:Masha101@localhost/cloudClassification", echo=True)
+
 Base = declarative_base()
 
 
